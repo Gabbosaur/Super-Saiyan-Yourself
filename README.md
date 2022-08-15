@@ -35,7 +35,3 @@ Border color indicators:
 ## Contributing
 Any kind of improvements are welcome. For major changes, please open an issue first or through the [dedicated discord server](https://discord.gg/vQAfHbMN) to discuss what you would like to change.
 
-
-
-## License
-[MIT](https://choosealicense.com/licenses/mit/)
