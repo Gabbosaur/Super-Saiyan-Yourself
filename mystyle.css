@@ -1,7 +1,7 @@
 .center {
     margin: auto;
     width: 50%;
-    border: 3px dotted rgb(250, 233, 0);
+    border: 3px solid rgb(250, 233, 0);
     padding: 15px;
     text-align: center;
   }

@@ -1,6 +1,7 @@
 const URL = 'https://teachablemachine.withgoogle.com/models/p-FDPxask/';
 let model, webcam, ctx, labelContainer, maxPredictions;
 
+let audio_bg = new Audio("/audio/dbzssj3.mp3")
 let audio_is = new Audio("/audio/initial-stance.mp3");
 let audio_ab = new Audio("/audio/auraburst.mp3");
 audio_is.loop = false;
@@ -13,7 +14,37 @@ let flag_border_reset = null;
 
 function playOnce(audio) {
     // audio.load();
+    audio.volume = 1;
     audio.play();
+}
+
+function playBGAudio(audio) {
+    // audio.load();
+    audio.volume = .3;
+    audio.play();
+}
+
+function stopBGAudio(audio) {
+    audio.pause();
+}
+
+function fadeAudio(sound) {
+    // Set the point in playback that fadeout begins. This is for a 2 second fade out.
+    var fadePoint = sound.duration - 2;
+
+    var fadeAudio = setInterval(function () {
+
+        // Only fade if past the fade out point or not at zero already
+        if ((sound.currentTime >= fadePoint) && (sound.volume > 0.1)) {
+            sound.volume -= 0.1; // It seems the substraction isn't functioning as expected.
+            // console.log("ENTRA NEL IF con: ", sound.volume);
+        }
+        // When volume at zero stop all the intervalling
+        if (sound.volume === 0.0) {
+            clearInterval(fadeAudio);
+        }
+    }, 200);
+
 }
 
 async function init() {
@@ -59,6 +90,8 @@ async function predict() {
     const prediction = await model.predict(posenetOutput);
 
     if (checkKeypointVisibility(pose)) {
+        playBGAudio(audio_bg);
+
         for (let i = 0; i < maxPredictions; i++) {
             const classPrediction =
                 prediction[i].className + ': ' + prediction[i].probability.toFixed(2);
@@ -86,7 +119,8 @@ async function predict() {
                 flag_initial_pose = false;
                 flag_border_reset = false;
                 // draw yellow border
-                setBorder("8px dashed yellow");
+                setBorder("5px solid yellow");
+                fadeAudio(audio_ab);
 
             }
         }
@@ -129,7 +163,7 @@ function checkKeypointVisibility(pose) {
             // console.log("ok:", pose.keypoints[i].part);
             // draw green border
             if (flag_border_reset) {
-                setBorder("3px solid rgb(0,230,0");
+                setBorder("5px solid rgb(0,230,0");
             }
 
             flag = true;
@@ -162,10 +196,13 @@ function toggleAuraOff() {
 function activateShake() {
     var x = document.querySelector("h1");
     x.setAttribute("id", "shake");
+    // var y = document.querySelector("div");
+    // y.setAttribute("id", "shake");
 }
 
 function deleteShake() {
     document.querySelector("h1").removeAttribute("id");
+    // document.querySelector("div").removeAttribute("id");
 }
 
 
