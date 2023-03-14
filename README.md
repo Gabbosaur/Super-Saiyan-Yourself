@@ -7,7 +7,12 @@ You're welcome to contribute to any kind of improvement to the project! :)
 
 Just reach me out on my dedicated [Discord server](https://discord.gg/vQAfHbMN).
 
-## Installation
+## Try it online!
+
+https://super-saiyan-yourself.netlify.app/
+
+
+## Local installation
 
 Clone this repository
 
