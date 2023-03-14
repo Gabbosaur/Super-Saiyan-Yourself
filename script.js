@@ -48,8 +48,10 @@ function fadeAudio(sound) {
 }
 
 async function init() {
-    const modelURL = URL + 'model.json';
-    const metadataURL = URL + 'metadata.json';
+    // const modelURL = URL + 'model.json';
+    // const metadataURL = URL + 'metadata.json';
+    const modelURL = './model.json';
+    const metadataURL = './metadata.json';
 
     width = 500;
     height = 500;
