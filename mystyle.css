@@ -1,3 +1,13 @@
+.version {
+  padding: 10px;
+  font-size: 0.8em;
+  font-style: italic;
+  color: #999;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
 .center {
     margin: auto;
     width: 50%;
