@@ -1,66 +1,120 @@
 <html>
 
 <head>
-    <title>Super Saiyan Yourself</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+	<title>Super Saiyan Yourself</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="icon" type="image/x-icon" href="/images/favicon.ico">
 
-    <link rel="stylesheet" href="mystyle.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
-        crossorigin="anonymous"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.3.1/dist/tf.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/pose@0.8.3/dist/teachablemachine-pose.min.js"></script>
-    <script type="text/javascript" src="script.js">
-    </script>
+	<link rel="stylesheet" href="mystyle.css">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+		crossorigin="anonymous"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.3.1/dist/tf.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/@teachablemachine/pose@0.8.3/dist/teachablemachine-pose.min.js"></script>
+	<script type="text/javascript" src="script.js">
+	</script>
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="#">SSY</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Play</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link disabled" href="./aboutus.html">About</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link disabled" href="">Contact</a>
-                    </li>
-                </ul>
+	<nav class="navbar navbar-expand-lg bg-body-tertiary">
+		<div class="container-fluid">
+			<a class="navbar-brand" href="#">SSY</a>
+			<button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+				data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+				aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+					<li class="nav-item">
+						<a class="nav-link active" aria-current="page" href="#">Play</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link disabled" href="./aboutus.html">About</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link disabled" href="">Contact</a>
+					</li>
+				</ul>
 
-            </div>
-        </div>
-    </nav>
+			</div>
+		</div>
+	</nav>
 
-    <div class="container-lg">
-        <h1 class="intro">Super Saiyan Yourself</h1>
-        <div class="center">
-            <button type='button' class="btn btn-light" onclick='init()'>Start webcam</button>
-            <button type='button' class="btn btn-light" onclick='stopBGAudio(audio_bg)'>Stop audio</button>
-            <!-- <button type='button' onclick='deleteShake()'>Remove</button> -->
-        </div>
-        <div class="center">
-            <img class="aura" id="toggleAura" src="https://i.stack.imgur.com/CFoa1.gif" />
-            <div class="aurabox">
-                <canvas id='canvas'></canvas>
-            </div>
+	<div class="container-lg">
+		<h1 class="intro">Super Saiyan Yourself</h1>
+		<div class="center">
+			<button type='button' class="btn btn-light" onclick='init()'>Start webcam</button>
+			<button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#instructions">
+				Instructions
+			</button>
+			<button type='button' class="btn btn-light" onclick='stopBGAudio(audio_bg)'>Stop audio</button>
+			<!-- <button type='button' onclick='deleteShake()'>Remove</button> -->
+		</div>
 
-        </div>
-        <div id='label-container'></div>
+		<div class="modal fade" id="instructions" tabindex="-1" aria-labelledby="instructionLabel" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title" id="instructionLabel">Instructions</h5>
+						<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+					</div>
+					<div class="modal-body">
+						<p>
+							<b>Super Saiyan Yourself</b> is a web application that allows you to transform into a Super
+							Saiyan
+							by
+							just moving your arms.<br>
+							<hr>
+							<b>How to play</b><br>
+							Click on START WEBCAM button and give access to the camera.<br>
 
-    </div>
+							There are 3 poses to play with:<br>
+
+							<b>Neutral</b>: standing still with relaxed arms<br>
+							<b>Initial</b>: making an X with your forearms, this is the initial pose in order to gather
+							energy to
+							transform<br>
+							<b>Aura burst</b>: spread your arms like Goku when he's turning Super Saiyan<br>
+						</p>
+						<div class="d-flex justify-content-center">
+							<img src="images/gokussj.gif" alt="Goku transforming in Super Saiyan" width="300"
+								height="200">
+						</div>
+						<hr>
+						<p>
+							<b>Border color indicators</b>
+						<div style="color: red; margin-top: 1rem;">Red</div>
+						Move a bit further from the camera in order detect the important
+						keypoints (eyes, nose,
+						shoulders, elbows, wrists and hips)
+						<div style="color: green; margin-top: 1rem;">Green</div>
+						Ready for poses
+						<div style="color: #fd0; margin-top: 1rem;">Yellow</div>
+						Default color and triggered when in Aura burst state
+						</p>
+
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-primary" data-bs-dismiss="modal">Gotcha!</button>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="center">
+			<img class="aura" id="toggleAura" src="https://i.stack.imgur.com/CFoa1.gif" />
+			<div class="aurabox">
+				<canvas id='canvas'></canvas>
+			</div>
+
+		</div>
+		<div id='label-container'></div>
+
+	</div>
 
 	<div class="version">
 		<p>version 1.0</p>

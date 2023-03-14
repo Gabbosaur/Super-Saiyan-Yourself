@@ -1,8 +1,13 @@
+p {
+	margin-bottom: 0;
+}
+
 .version {
   padding: 10px;
   font-size: 0.8em;
   font-style: italic;
   color: #999;
+  position: absolute;
   position: absolute;
   bottom: 0;
   right: 0;
