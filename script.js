@@ -110,6 +110,7 @@ async function predict() {
                 playOnce(audio_is);
                 flag_initial_pose = true;
                 flag_neutral = false;
+                switchAuraLevel(2);
             }
 
             if (flag_initial_pose == true && prediction[2].probability > 0.95) {
@@ -187,11 +188,18 @@ function setBorder(color) {
 function toggleAuraOn() {
     var off = document.getElementById('toggleAura');
     off.style.display = "block";
+    switchAuraLevel(3);
+}
+
+function switchAuraLevel(level) {
+    // aura level 1 to 3
+    document.getElementsByClassName('aurabox')[0].style.animation = "pulse"+level+" 1.5s ease-in-out infinite";
 }
 
 function toggleAuraOff() {
     var off = document.getElementById('toggleAura');
     off.style.display = "none";
+    switchAuraLevel(1);
 }
 
 
