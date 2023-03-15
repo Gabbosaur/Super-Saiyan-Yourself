@@ -1,5 +1,10 @@
-p {
-	margin-bottom: 0;
+@font-face {
+	font-family: 'Saiyan-Sans';
+	src: url(./font/Saiyan-Sans.ttf);
+}
+
+.saiyan-sans {
+	font-family: 'Saiyan-Sans';
 }
 
 .version {
@@ -200,25 +205,25 @@ h1 {
 
 @keyframes pulse1 {
   0% {
-    box-shadow: 0 0 0px #fd0;
+    box-shadow: 0 0 0px rgb(255, 185, 0);
   }
   50% {
-    box-shadow: 0 0 10px #fd0;
+    box-shadow: 0 0 10px rgb(255, 190, 0);
   }
   100% {
-    box-shadow: 0 0 0px #fd0;
+    box-shadow: 0 0 0px rgb(255, 195, 0);
   }
 }
 
 @keyframes pulse2 {
   0% {
-    box-shadow: 0 0 20px #fd0;
+    box-shadow: 0 0 20px rgb(255, 195, 0);
   }
   50% {
-    box-shadow: 0 0 200px #fd0;
+    box-shadow: 0 0 200px rgb(255, 205, 0);
   }
   100% {
-    box-shadow: 0 0 20px #fd0;
+    box-shadow: 0 0 20px rgb(255, 215, 0);
   }
 }
 
