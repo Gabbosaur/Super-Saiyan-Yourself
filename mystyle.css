@@ -41,7 +41,7 @@ h1 {
   margin: auto;
   z-index: 1;
   position: fixed;
-  top: 25px;
+  top: 50px;
   right: 25px;
   display: none;
 }
@@ -72,7 +72,13 @@ h1 {
   animation-iteration-count: 3;
 }
 
+.buttons {
+	padding: 10px;
+}
 
+#label-container {
+	display: none;
+}
 
 /* 
 .auraTest {

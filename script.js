@@ -1,4 +1,3 @@
-const URL = 'https://teachablemachine.withgoogle.com/models/p-FDPxask/';
 let model, webcam, ctx, labelContainer, maxPredictions;
 
 let audio_bg = new Audio("/audio/dbzssj3.mp3")
@@ -48,17 +47,15 @@ function fadeAudio(sound) {
 }
 
 async function init() {
-	// const modelURL = URL + 'model.json';
-	// const metadataURL = URL + 'metadata.json';
-	const modelURL = './model/model.json';
-	const metadataURL = './model/metadata.json';
+	const modelPath = './model/model.json';
+	const metadataPath = './model/metadata.json';
 
 	width = 500;
 	height = 500;
 
 	// load the model and metadata
 	// Refer to tmPose.loadFromFiles() in the API to support files from a file picker
-	model = await tmPose.load(modelURL, metadataURL);
+	model = await tmPose.load(modelPath, metadataPath);
 	maxPredictions = model.getTotalClasses();
 
 	// Convenience function to setup a webcam
@@ -68,7 +65,7 @@ async function init() {
 	webcam.play();
 	window.requestAnimationFrame(loop);
 
-	// append/get elements to the DOM
+	// // append/get elements to the DOM (prediction scores)
 	const canvas = document.getElementById('canvas');
 	canvas.width = width; canvas.height = height;
 	ctx = canvas.getContext('2d');

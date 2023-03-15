@@ -46,7 +46,7 @@
 
 	<div class="container-lg">
 		<h1 class="intro">Super Saiyan Yourself</h1>
-		<div class="center">
+		<div class="d-flex justify-content-center buttons">
 			<button type='button' class="btn btn-light" onclick='init()'>Start webcam</button>
 			<button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#instructions">
 				Instructions
@@ -64,22 +64,28 @@
 					</div>
 					<div class="modal-body">
 						<p>
-							<b>Super Saiyan Yourself</b> is a web application that allows you to transform into a Super
+							<b>Super Saiyan Yourself</b> is a web application made by <a
+								href="https://github.com/Gabbosaur" target="_blank">Gabbosaur</a> that allows you to transform into a
+							Super
 							Saiyan
 							by
-							just moving your arms.<br>
-							<hr>
-							<b>How to play</b><br>
-							Click on START WEBCAM button and give access to the camera.<br>
+							just moving your arms.
+						</p>
+						<hr>
+						<h3 class="d-flex justify-content-center">How to play</h3>
+						<p>
+							Click on START WEBCAM button and give access to the camera.
+						</p>
 
-							There are 3 poses to play with:<br>
-
+						<p>There are 3 poses to play with:</p>
+						<p>
 							<b>Neutral</b>: standing still with relaxed arms<br>
 							<b>Initial</b>: making an X with your forearms, this is the initial pose in order to gather
 							energy to
 							transform<br>
-							<b>Aura burst</b>: spread your arms like Goku when he's turning Super Saiyan<br>
+							<b>Aura burst</b>: spread your arms like Goku when he's turning Super Saiyan
 						</p>
+
 						<div class="d-flex justify-content-center">
 							<img src="images/gokussj.gif" alt="Goku transforming in Super Saiyan" width="300"
 								height="200">
@@ -112,6 +118,7 @@
 			</div>
 
 		</div>
+		<!-- prediction scores -->
 		<div id='label-container'></div>
 
 	</div>
