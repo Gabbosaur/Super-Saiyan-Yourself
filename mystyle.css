@@ -219,7 +219,7 @@ h1 {
   position: relative;
   z-index: -1;
   background-color: #fff;
-  padding: 20px;
+  padding: 0;
 }
 
 .aurabox:before {
@@ -276,7 +276,7 @@ h1 {
   }
 }
 
-@media screen and (max-width: 1240px) {
+/* @media screen and (max-width: 1240px) {
   .media-warn {
     display: flex;
   }
@@ -296,4 +296,4 @@ h1 {
   align-items: center;
   justify-content: center;
   text-align: center;
-}
+} */
