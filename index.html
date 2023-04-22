@@ -12,133 +12,62 @@
 		integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
 		crossorigin="anonymous"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-	<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.3.1/dist/tf.min.js"></script>
-	<script src="https://cdn.jsdelivr.net/npm/@teachablemachine/pose@0.8.3/dist/teachablemachine-pose.min.js"></script>
 	<script type="text/javascript" src="script.js">
 	</script>
 </head>
 
 <body>
-	<div class="body">
-		<nav class="navbar navbar-expand-lg bg-body-tertiary">
-			<div class="container-fluid">
-				<a class="navbar-brand saiyan-sans" href="#"><span style="color: rgb(255, 191, 0)">SS</span><span
-						style="color: rgb(201, 0, 0)">Y</span></a>
-				<button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-					data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-					aria-expanded="false" aria-label="Toggle navigation">
-					<span class="navbar-toggler-icon"></span>
-				</button>
-				<div class="collapse navbar-collapse" id="navbarSupportedContent">
-					<ul class="navbar-nav me-auto mb-2 mb-lg-0">
-						<li class="nav-item">
-							<a class="nav-link active" aria-current="page" href="#">Play</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link disabled" href="./aboutus.html">About</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link disabled" href="">Contact</a>
-						</li>
-					</ul>
+	<nav class="navbar navbar-expand-lg bg-body-tertiary">
+		<div class="container-fluid">
+			<a class="navbar-brand saiyan-sans" href="#"><span style="color: rgb(255, 191, 0)">SS</span><span
+					style="color: rgb(201, 0, 0)">Y</span></a>
+			<button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+				data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+				aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+					<li class="nav-item">
+						<a class="nav-link" href="./play.html">Play</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="./aboutus.html">About</a>
+					</li>
 
+				</ul>
+
+			</div>
+		</div>
+	</nav>
+
+	<div class="container-lg">
+		<div class="px-3 py-3 my-3 text-center">
+			<h1 class="animate-reveal animate-now animate-text">Ever since you were a child, </h1>
+			<h1 class="animate-reveal animate-1 animate-text">have you wished you could turn into a Super Saiyan?
+			</h1>
+			<h1 class="animate-reveal animate-3 animate-text">You do, I bet you!</h1>
+			<h1 class="animate-reveal animate-4 animate-text">We all do!</h1>
+			<br>
+			<div class="col-lg-6 mx-auto">
+				<p class="lead lg-3">
+					That's why I’m happy to introduce you to my project, which has been a passion project and an
+					enjoyable
+					pursuit that has enabled me to fulfill our long-cherished wish.<br>
+					Last but not least, I want to take a moment to thank you, aspiring fellow Saiyan, for taking the
+					time to try
+					out my project, it
+					means a lot to me and I hope you enjoy my work.</p>
+				<div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+					<button type="button" onclick="location.href='./play.html'"
+						class="btn btn-primary btn-lg px-4 gap-3">PLAY</button>
 				</div>
 			</div>
-		</nav>
-
-		<div class="container-lg">
-			<h1 class="intro saiyan-sans"><span style="color: rgb(255, 191, 0)">Super Saiyan</span> <span
-					style="color: rgb(201, 0, 0)">Yourself</span></h1>
-			<div class="d-flex justify-content-center buttons">
-				<button type='button' class="btn btn-light" onclick='init()'>Start webcam</button>
-				<button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#instructions">
-					Instructions
-				</button>
-				<button type='button' class="btn btn-light" onclick='stopBGAudio(audio_bg)'>Stop audio</button>
-				<!-- <button type='button' onclick='deleteShake()'>Remove</button> -->
-			</div>
-
-			<div class="modal fade" id="instructions" tabindex="-1" aria-labelledby="instructionLabel"
-				aria-hidden="true">
-				<div class="modal-dialog">
-					<div class="modal-content">
-						<div class="modal-header">
-							<h5 class="modal-title" id="instructionLabel">Instructions</h5>
-							<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-						</div>
-						<div class="modal-body">
-							<p>
-								<b>Super Saiyan Yourself</b> is a web application made with love and enthusiasm by <a
-									href="https://github.com/Gabbosaur" target="_blank">Gabbosaur</a> that allows you to
-								transform into a
-								Super
-								Saiyan
-								by
-								just moving your arms.
-							</p>
-							<hr>
-							<h3 class="d-flex justify-content-center">How to play</h3>
-							<p>
-								Click on START WEBCAM button and give access to the camera.
-							</p>
-
-							<p>There are 3 poses to play with:</p>
-							<p>
-								<b>Neutral</b>: standing still with relaxed arms<br>
-								<b>Initial</b>: making an X with your forearms, this is the initial pose in order to
-								gather
-								energy to
-								transform<br>
-								<b>Aura burst</b>: spread your arms like Goku when he's turning Super Saiyan
-							</p>
-
-							<div class="d-flex justify-content-center">
-								<img src="images/gokussj.gif" alt="Goku transforming in Super Saiyan" width="300"
-									height="200">
-							</div>
-							<hr>
-							<p>
-								<b>Border color indicators</b>
-							<div style="color: red; margin-top: 1rem;">Red</div>
-							Move a bit further from the camera in order detect the important
-							keypoints (eyes, nose,
-							shoulders, elbows, wrists and hips)
-							<div style="color: green; margin-top: 1rem;">Green</div>
-							Ready for poses
-							<div style="color: #fd0; margin-top: 1rem;">Yellow</div>
-							Default color and triggered when in Aura burst state
-							</p>
-
-						</div>
-						<div class="modal-footer">
-							<button type="button" class="btn btn-primary" data-bs-dismiss="modal">Gotcha!</button>
-						</div>
-					</div>
-				</div>
-			</div>
-
-			<div class="center">
-				<img class="aura" id="toggleAura" src="https://i.stack.imgur.com/CFoa1.gif" />
-				<div class="aurabox">
-					<canvas id='canvas'></canvas>
-				</div>
-
-			</div>
-			<!-- prediction scores -->
-			<div id='label-container'></div>
-
 		</div>
 
-		<div class="version">
-			<p>version 1.0</p>
-		</div>
 	</div>
 
-	<div class="mobile-message">
-		<h1>This web app is only available for desktop users.</h1>
-		<p>Please access it from a desktop computer in full screen.</p>
-		<img src="/images/imsorrysmile.gif" alt="Sorry" width="50%" height="50%">
-	</div>
+
 </body>
 
 </html>
